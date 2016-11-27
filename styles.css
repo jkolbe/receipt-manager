@@ -1,0 +1,97 @@
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+body {
+  background: url(./assets/images/white_lines.png) fixed 0 0/cover #A2A3A7;
+}
+
+nav.side-nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+nav.side-nav ul {
+  position: fixed;
+  list-style-type: none;
+  width: 100vh;
+  text-align: center;
+  padding: 10px 0;
+  margin: 0;
+}
+
+nav.side-nav ul li {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+
+nav.side-nav ul li:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background-color: #000;
+  top: 50%;
+  right: -10px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+nav.side-nav ul li a {
+  color: #000;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+}
+
+.main .ink-drop {
+  position: absolute;
+  background: url(./assets/images/ink-drop.png) fixed no-repeat 0 0/contain;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-animation-name: hueShift;
+  animation-name: hueShift;
+  -webkit-animation-duration: 60s;
+  animation-duration: 60s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+}
+
+.main p {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding: 10px 50px;
+  margin: 0 100px;
+  font-size: 4vw;
+  line-height: 1;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #fff;
+}
