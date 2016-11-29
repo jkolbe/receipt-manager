@@ -6,6 +6,7 @@ import { ReceiptsComponent }   from './receipts/receipts.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'receipts', component: ReceiptsComponent },
+  { path: 'receipt/:id', component: ReceiptsComponent },
   { path: 'about', component: ReceiptsComponent }
 ];
 
