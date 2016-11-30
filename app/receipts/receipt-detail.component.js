@@ -20,21 +20,12 @@ var ReceiptDetailComponent = (function () {
         this.location = location;
     }
     ReceiptDetailComponent.prototype.ngOnInit = function () {
-        //console.log(this.route.params.value.id);
-        //this.id = this.route.params._value.id;
         var _this = this;
-        // this.route.params
-        //     		.switchMap((params: Params) => {
-        //     			return this.receiptSvc.getReceipt(+params['id'])
-        //     		).subscribe(receipt => {
-        //     			console.log('RETURNING '+receipt);
-        //     			return this.receipt = receipt
-        //     		});
-        this.receiptSvc.getReceipt('583de64f43d5305354ca53a2')
-            .then(function (receipt) {
-            console.log(receipt);
-            return _this.receipt = receipt;
-        });
+        this.route.params
+            .switchMap(function (params) { return _this.receiptSvc.getReceipt(params['id']); })
+            .subscribe(function (receipt) { return _this.receipt = receipt; });
+        // this.receiptSvc.getReceipt('583de64f43d5305354ca53a2')
+        // 	.then(receipt => this.receipt = receipt);
     };
     ReceiptDetailComponent.prototype.goBack = function () {
         this.location.back();

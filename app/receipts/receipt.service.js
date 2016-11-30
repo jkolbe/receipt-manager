@@ -25,24 +25,10 @@ var ReceiptService = (function () {
             .catch(this.handleError);
     };
     ReceiptService.prototype.getReceipt = function (id) {
-        //return id;
         return this.http.get(this.apiUrl + '/' + id)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
-        // console.log('----INSIDE IN----');
-        // return this.http.get(this.apiUrl+'/'+id')
-        //            .toPromise()
-        //            .then(response => response.json() as Receipt)
-        //            .catch(this.handleError);
-        // return this.getReceipts()
-        // 		.then(receipts => {
-        // 			return receipts.find(receipt => {
-        // 				console.log('LOOKING FOR: '+id);
-        // 				console.log('RECEIPT ID: '+receipt._id);
-        // 				return receipt._id === id
-        // 			});
-        // 		});
     };
     ReceiptService.prototype.handleError = function (error) {
         console.error('An error occurred', error);
