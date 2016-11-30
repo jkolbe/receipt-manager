@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router';
 
 import { Receipt } from './receipt';
 import { ReceiptService } from './receipt.service';
@@ -10,9 +11,10 @@ import { ReceiptService } from './receipt.service';
   	<div class="container">
   		<div class="row">
   			<div class="col-xs-12">
-				<div *ngFor="let receipt of receipts">
-					<p>Merchant: {{receipt.merchant}}</p>
-				</div>
+  				<div *ngFor="let receipt of receipts">
+  					<p>Merchant: {{receipt.merchant}}</p>
+            <a (click)="gotoDetail(receipt._id)">View Details</a>
+  				</div>
   			</div>
   		</div>
   	</div>
@@ -22,7 +24,9 @@ export class ReceiptsComponent implements OnInit {
 
 	receipts: Receipt[] = [];
 
-  constructor(private receiptSvc: ReceiptService) { }
+  constructor(
+    private receiptSvc: ReceiptService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.receiptSvc.getReceipts()
@@ -30,14 +34,10 @@ export class ReceiptsComponent implements OnInit {
         this.receipts = receipts;
         console.log(this.receipts);
       });
-    //this.receiptSvc.getReceipts().then(receipts => this.receipts = receipts.slice(1, 5));
   }
 
-	// constructor(private receiptSvc:ReceiptService) {
- //    receiptSvc.getNewsItems().subscribe(
- //      response => { this.receipts = response.json(); },
- //      error => { console.log('Sorry, there was a problem with your data'); }
- //    )
- //  }
+	gotoDetail(id): void {
+    this.router.navigate(['/detail', id]);
+  }
 
 }

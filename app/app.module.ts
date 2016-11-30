@@ -9,12 +9,13 @@ import { AppComponent }   from './app.component';
 
 import { HomeComponent }   from './home/home.component';
 import { ReceiptsComponent }   from './receipts/receipts.component';
+import { ReceiptDetailComponent }   from './receipts/receipt-detail.component';
 
 import { routing } from './app.routing';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule, routing ],
-  declarations: [ AppComponent, HomeComponent, ReceiptsComponent ],
+  declarations: [ AppComponent, HomeComponent, ReceiptsComponent, ReceiptDetailComponent ],
   providers: 	[ ReceiptService ],
   bootstrap:    [ AppComponent ]
 })

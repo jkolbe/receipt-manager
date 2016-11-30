@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   		<li><a [routerLink]="['/']">Home</a></li>
   		<li><a [routerLink]="['/receipts']">Receipts</a></li>
   		<li><a [routerLink]="['/about']">About</a></li>
+      <li><a [routerLink]="['/detail/32132']">Detail</a></li>
   	</ul>
   </nav>
 
