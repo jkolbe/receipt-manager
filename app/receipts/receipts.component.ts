@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Receipt } from './receipt';
 import { ReceiptService } from './receipt.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'receipts',
   template: `
   	<div class="container">
@@ -15,15 +18,26 @@ import { ReceiptService } from './receipt.service';
   	</div>
   `
 })
-export class ReceiptsComponent {
+export class ReceiptsComponent implements OnInit {
 
-	receipts = [];
+	receipts: Receipt[] = [];
 
-	constructor(private receiptSvc:ReceiptService) {
-        receiptSvc.getNewsItems().subscribe(
-            response => { this.receipts = response.json(); },
-            error => { console.log('Sorry, there was a problem with your data'); }
-        )
-    }
+  constructor(private receiptSvc: ReceiptService) { }
+
+  ngOnInit(): void {
+    this.receiptSvc.getReceipts()
+      .then(receipts => {
+        this.receipts = receipts;
+        console.log(this.receipts);
+      });
+    //this.receiptSvc.getReceipts().then(receipts => this.receipts = receipts.slice(1, 5));
+  }
+
+	// constructor(private receiptSvc:ReceiptService) {
+ //    receiptSvc.getNewsItems().subscribe(
+ //      response => { this.receipts = response.json(); },
+ //      error => { console.log('Sorry, there was a problem with your data'); }
+ //    )
+ //  }
 
 }

@@ -10,12 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
 var ReceiptService = (function () {
     function ReceiptService(http) {
         this.http = http;
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        //private apiUrl = '/data.json';
+        this.apiUrl = "http://localhost:3001/api";
     }
-    ReceiptService.prototype.getNewsItems = function () {
-        return this.http.get("data.json");
+    ReceiptService.prototype.getReceipts = function () {
+        return this.http.get(this.apiUrl)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    ReceiptService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     };
     ReceiptService = __decorate([
         core_1.Injectable(), 
