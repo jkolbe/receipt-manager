@@ -20,9 +20,21 @@ var ReceiptDetailComponent = (function () {
         this.location = location;
     }
     ReceiptDetailComponent.prototype.ngOnInit = function () {
-        console.log('a');
-        console.log(this.route.params._value.id);
-        this.id = this.route.params._value.id;
+        //console.log(this.route.params.value.id);
+        //this.id = this.route.params._value.id;
+        var _this = this;
+        // this.route.params
+        //     		.switchMap((params: Params) => {
+        //     			return this.receiptSvc.getReceipt(+params['id'])
+        //     		).subscribe(receipt => {
+        //     			console.log('RETURNING '+receipt);
+        //     			return this.receipt = receipt
+        //     		});
+        this.receiptSvc.getReceipt('583de64f43d5305354ca53a2')
+            .then(function (receipt) {
+            console.log(receipt);
+            return _this.receipt = receipt;
+        });
     };
     ReceiptDetailComponent.prototype.goBack = function () {
         this.location.back();
@@ -31,7 +43,7 @@ var ReceiptDetailComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'receipt-details',
-            template: "\n  \t<div class=\"container\">\n  \t\t<div class=\"row\">\n  \t\t\t<div class=\"col-xs-12\">\n  \t\t\t\t<p>sample receipt: {{id}}</p>\n  \t\t\t</div>\n  \t\t\t<div class=\"col-xs-12\">\n          \t\t<a (click)=\"goBack()\">< Back</a>\n        \t</div>\n  \t\t</div>\n  \t</div>\n\n  \t\n  "
+            template: "\n  \t<div class=\"container\" *ngIf=\"receipt\">\n  \t\t<div class=\"row\">\n  \t\t\t<div class=\"col-xs-12\">\n  \t\t\t\t<p>sample receipt: {{receipt._id}}</p>\n  \t\t\t\t<p>{{receipt.merchant}}</p>\n  \t\t\t\t<p>{{receipt.date}}</p>\n  \t\t\t\t<p>{{receipt.total}}</p>\n  \t\t\t</div>\n  \t\t\t<div class=\"col-xs-12\">\n          \t\t<a (click)=\"goBack()\">< Back</a>\n        \t</div>\n  \t\t</div>\n  \t</div>\n\n  \t\n  "
         }), 
         __metadata('design:paramtypes', [receipt_service_1.ReceiptService, router_1.ActivatedRoute, common_1.Location])
     ], ReceiptDetailComponent);

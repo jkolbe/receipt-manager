@@ -30,10 +30,7 @@ export class ReceiptsComponent implements OnInit {
 
   ngOnInit(): void {
     this.receiptSvc.getReceipts()
-      .then(receipts => {
-        this.receipts = receipts;
-        console.log(this.receipts);
-      });
+      .then(receipts => this.receipts = receipts);
   }
 
 	gotoDetail(id): void {

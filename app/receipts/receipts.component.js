@@ -20,10 +20,7 @@ var ReceiptsComponent = (function () {
     ReceiptsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.receiptSvc.getReceipts()
-            .then(function (receipts) {
-            _this.receipts = receipts;
-            console.log(_this.receipts);
-        });
+            .then(function (receipts) { return _this.receipts = receipts; });
     };
     ReceiptsComponent.prototype.gotoDetail = function (id) {
         this.router.navigate(['/detail', id]);

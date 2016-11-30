@@ -8,7 +8,7 @@ Start MongoDB
 	> npm install mongodb
 
 Run server (new terminal window)
-	> node receipt-api.js
+	> node api.js
 
 
 Get all wines:
