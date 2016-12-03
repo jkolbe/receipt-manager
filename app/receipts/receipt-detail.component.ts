@@ -10,21 +10,21 @@ import { ReceiptService } from './receipt.service';
   moduleId: module.id,
   selector: 'receipt-details',
   template: `
-  	<div class="container" *ngIf="receipt">
-  		<div class="row">
-  			<div class="col-xs-12">
-  				<p>sample receipt: {{receipt._id}}</p>
-  				<p>{{receipt.merchant}}</p>
-  				<p>{{receipt.date}}</p>
-  				<p>{{receipt.total}}</p>
-  			</div>
-  			<div class="col-xs-12">
-          		<a (click)="goBack()">< Back</a>
-        	</div>
-  		</div>
-  	</div>
-
-  	
+    <div class="container">
+      <div class="content-holder">
+        <div class="row">
+          <div *ngIf='receipt' class="col-xs-12">
+            <p>{{receipt._id}}</p>
+            <p>{{receipt.merchant}}</p>
+            <p>{{receipt.date}}</p>
+            <p>{{receipt.total}}</p>
+          </div>
+          <div class="col-xs-12">
+            <a (click)="goBack()">< Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
   `
 })
 
@@ -43,9 +43,6 @@ export class ReceiptDetailComponent implements OnInit {
 		this.route.params
       		.switchMap((params: Params) => this.receiptSvc.getReceipt(params['id']))
       		.subscribe(receipt => this.receipt = receipt);
-      	// this.receiptSvc.getReceipt('583de64f43d5305354ca53a2')
-      	// 	.then(receipt => this.receipt = receipt);
-
 	}
 
 	goBack(): void {
@@ -53,6 +50,3 @@ export class ReceiptDetailComponent implements OnInit {
 	}
 
 }
-
-//ReceiptDetailComponent
-

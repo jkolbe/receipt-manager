@@ -24,8 +24,6 @@ var ReceiptDetailComponent = (function () {
         this.route.params
             .switchMap(function (params) { return _this.receiptSvc.getReceipt(params['id']); })
             .subscribe(function (receipt) { return _this.receipt = receipt; });
-        // this.receiptSvc.getReceipt('583de64f43d5305354ca53a2')
-        // 	.then(receipt => this.receipt = receipt);
     };
     ReceiptDetailComponent.prototype.goBack = function () {
         this.location.back();
@@ -34,12 +32,11 @@ var ReceiptDetailComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'receipt-details',
-            template: "\n  \t<div class=\"container\" *ngIf=\"receipt\">\n  \t\t<div class=\"row\">\n  \t\t\t<div class=\"col-xs-12\">\n  \t\t\t\t<p>sample receipt: {{receipt._id}}</p>\n  \t\t\t\t<p>{{receipt.merchant}}</p>\n  \t\t\t\t<p>{{receipt.date}}</p>\n  \t\t\t\t<p>{{receipt.total}}</p>\n  \t\t\t</div>\n  \t\t\t<div class=\"col-xs-12\">\n          \t\t<a (click)=\"goBack()\">< Back</a>\n        \t</div>\n  \t\t</div>\n  \t</div>\n\n  \t\n  "
+            template: "\n    <div class=\"container\">\n      <div class=\"content-holder\">\n        <div class=\"row\">\n          <div *ngIf='receipt' class=\"col-xs-12\">\n            <p>{{receipt._id}}</p>\n            <p>{{receipt.merchant}}</p>\n            <p>{{receipt.date}}</p>\n            <p>{{receipt.total}}</p>\n          </div>\n          <div class=\"col-xs-12\">\n            <a (click)=\"goBack()\">< Back</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [receipt_service_1.ReceiptService, router_1.ActivatedRoute, common_1.Location])
     ], ReceiptDetailComponent);
     return ReceiptDetailComponent;
 }());
 exports.ReceiptDetailComponent = ReceiptDetailComponent;
-//ReceiptDetailComponent
 //# sourceMappingURL=receipt-detail.component.js.map

@@ -13,6 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var receipt_service_1 = require('./receipts/receipt.service');
+var receipt_pipe_1 = require('./receipts/receipt.pipe');
+var receipt_pipe_2 = require('./receipts/receipt.pipe');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./home/home.component');
 var receipts_component_1 = require('./receipts/receipts.component');
@@ -24,7 +26,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, receipts_component_1.ReceiptsComponent, receipt_detail_component_1.ReceiptDetailComponent],
+            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, receipts_component_1.ReceiptsComponent, receipt_detail_component_1.ReceiptDetailComponent, receipt_pipe_1.ReceiptSearchPipe, receipt_pipe_2.OrderByPipe],
             providers: [receipt_service_1.ReceiptService],
             bootstrap: [app_component_1.AppComponent]
         }), 

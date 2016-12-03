@@ -14,6 +14,11 @@ body {
   background: url(./assets/images/white_lines.png) fixed 0 0/cover #A2A3A7;
 }
 
+.container-full {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 nav.side-nav {
   position: fixed;
   right: 0;
@@ -94,4 +99,11 @@ nav.side-nav ul li a {
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.65);
   color: #fff;
+}
+
+.content-holder {
+  margin: 50px 70px 50px 50px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  border-radius: 15px;
 }
