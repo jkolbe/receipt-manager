@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
   	<ul>
   		<li><a [routerLink]="['/']">Home</a></li>
   		<li><a [routerLink]="['/receipts']">Receipts</a></li>
-  		<li><a [routerLink]="['/about']">About</a></li>
-      <li><a [routerLink]="['/detail/32132']">Detail</a></li>
+  		<li><a [routerLink]="['/upload']">Upload</a></li>
   	</ul>
   </nav>
 

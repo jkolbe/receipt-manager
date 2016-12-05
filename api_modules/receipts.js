@@ -45,19 +45,25 @@ exports.findById = function(req, res) {
 }
 
 exports.addWine = function(req, res) {
-	var wine = req.body;
-    console.log(wine);
-    console.log('Adding receipt: ' + JSON.stringify(wine));
-
-    db.collection('receipt', function(err, collection) {
-        collection.insert(wine, {safe:true}, function(err, result){
-            if(err) {
-                res.send({error: 'An error occured - ' + err});
-            } else {
-                res.send(result[0]);
-            }
-        });
+    upload(req, res, function (err) {
+        if (err) {
+            return res.end(err.toString());
+        }
+        res.end('File is uploaded');
     });
+	// var wine = req.body;
+ //    console.log(wine);
+ //    console.log('Adding receipt: ' + JSON.stringify(wine));
+
+ //    db.collection('receipt', function(err, collection) {
+ //        collection.insert(wine, {safe:true}, function(err, result){
+ //            if(err) {
+ //                res.send({error: 'An error occured - ' + err});
+ //            } else {
+ //                res.send(result[0]);
+ //            }
+ //        });
+ //    });
 }
 
 

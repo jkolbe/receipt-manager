@@ -15,7 +15,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-spa',
-            template: "\n\n  <nav class=\"side-nav\">\n  \t<ul>\n  \t\t<li><a [routerLink]=\"['/']\">Home</a></li>\n  \t\t<li><a [routerLink]=\"['/receipts']\">Receipts</a></li>\n  \t\t<li><a [routerLink]=\"['/about']\">About</a></li>\n      <li><a [routerLink]=\"['/detail/32132']\">Detail</a></li>\n  \t</ul>\n  </nav>\n\n  <div>\n  \t<router-outlet></router-outlet>\n  </div>\n  \n  "
+            template: "\n\n  <nav class=\"side-nav\">\n  \t<ul>\n  \t\t<li><a [routerLink]=\"['/']\">Home</a></li>\n  \t\t<li><a [routerLink]=\"['/receipts']\">Receipts</a></li>\n  \t\t<li><a [routerLink]=\"['/upload']\">Upload</a></li>\n  \t</ul>\n  </nav>\n\n  <div>\n  \t<router-outlet></router-outlet>\n  </div>\n  \n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

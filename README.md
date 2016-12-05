@@ -12,7 +12,7 @@ Run server (new terminal window)
 
 
 Get all wines:
-> curl -i -X GET http://localhost:3000/api-receipt
+> curl -i -X GET http://localhost:3001/api
 
 Get wine with _id value of 5069b47aa892630aae000007 (use existing id):
 > curl -i -X GET http://localhost:3000/api-receipt/5069b47aa892630aae000007
